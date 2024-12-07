@@ -3,7 +3,7 @@ import pandas as pd
 
 file_path = 'data.csv'
 df = pd.read_csv(file_path)
-
+print(df)
 df = df.dropna()
 df = df_filtered = df[df.iloc[:, 2] >= 10000]
 df = df.drop_duplicates(subset=df.columns[1], keep='first')
