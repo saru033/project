@@ -22,8 +22,9 @@ export default function App() {
 
   const callApi = async () => {
     setIsButtonDisabled(true);
+  
     try {
-      const response = await fetch('http://172.30.1.1:5000/process', {
+      const response = await fetch('http://221.150.190.173:5000/process', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,10 +35,14 @@ export default function App() {
           userInput_diffi: inputText_diffi,
         }),
       });
-
+  
+      
       const result = await response.json();
+
+  
       setIsButtonDisabled(false);
       setApiResult(result.result); // Flask 서버에서 반환한 'result' 값을 상태에 저장
+  
     } catch (error) {
       console.error('Error calling API:', error);
     }
